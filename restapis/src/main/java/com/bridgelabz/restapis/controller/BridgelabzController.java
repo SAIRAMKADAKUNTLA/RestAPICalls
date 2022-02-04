@@ -1,8 +1,7 @@
 package com.bridgelabz.restapis.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgelabz.restapis.entity.User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BridgelabzController {
@@ -16,5 +15,12 @@ public class BridgelabzController {
     public String getMessageWithName(@PathVariable("name")String name){
         return "Hello "+name+" From Bridgelabz";
     }
+
+    @PostMapping("/post")
+    public String getName(@RequestBody User user){
+        return "full name is :"+user.getFirstName()+" "+user.getLastName();
+    }
+
+
 
 }
